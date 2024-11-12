@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 from recommendation import recommend_with_clustering
+#main data set
+df=pd.read_csv('/content/drive/MyDrive/data.csv')
 
-# Load the DataFrame with product names
-Selected_df = pd.read_csv('selected_df.csv')
+Selected_df = df[(df['Category'] == 'Toys') & (df['Selling Price'] < 50)]
 
 # Streamlit App Layout
 st.title("Product Recommendation System")
