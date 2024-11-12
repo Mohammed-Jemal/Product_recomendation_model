@@ -5,10 +5,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Load components
 tfid = joblib.load('tfidf_vectorizer.joblib')
 kmeans = joblib.load('kmeans_model.joblib')
-Selected_df = pd.read_csv('selected_df.csv')
+
 
 # Define the recommendation function
-def recommend_with_clustering(product_name, n_recommendations=10):
+def recommend_with_clustering(product_name,tfidf_matrix, Selected_df, n_recommendations=10):
     # Find the cluster of the input product
     product_cluster = Selected_df.loc[Selected_df['Product Name'] == product_name, 'cluster'].values[0]
     
